@@ -1,16 +1,23 @@
 from django.shortcuts import render
+from .models import Task
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    tasks = Task.objects.all()
+    context = {"tasks":tasks}
+    return render(request, 'index.html', context)
 
 
 def completed_tasks(request):
-    return render(request, 'completed.html')
+    tasks_completed = Task.objects.filter(completed=True)
+    context = {"tasks_completed":tasks_completed}
+    return render(request, 'completed.html', context)
 
 
 def remaining_tasks(request):
-    return render(request, 'remaining.html')
+    tasks_remaining = Task.objects.filter(completed=False)
+    context = {"tasks_remaining" : tasks_remaining}
+    return render(request, 'remaining.html', context)
 
 
 def add_task(request):

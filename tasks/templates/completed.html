@@ -10,9 +10,8 @@
   class="flex flex-1 flex-wrap justify-center gap-3 bg-[#fff0] w-10/12 md:w-11/12 h-full mb-3 rounded-2xl p-3 overflow-y-auto scrollbar-hide"
   >
   <!-- Task card -->
-  <div
-    class="w-[355px] flex flex-col shadow-md bg-white h-[120px] rounded-xl p-3"
-  >
+  {% for task in tasks_completed%}
+  <div class="w-[355px] flex flex-col shadow-md bg-white h-[120px] rounded-xl p-3">
     <!-- Top -->
     <div class="flex flex-row justify-between">
       <!-- Left: Title and Description -->
@@ -21,11 +20,11 @@
           <h1
             class="text-green-500 font-semibold text-xl italic line-through"
           >
-            Create a ToDo App with Django
+            {{ task.title }}
           </h1>
         </a>
         <p class="text-gray-500 text-md">
-          The app will contain the following...
+          {{ task.description | slice:":40"}}...
         </p>
       </div>
       <!-- Right: Toggle complete mode -->
@@ -45,5 +44,6 @@
       </a>
     </div>
   </div>
+  {% endfor %}
   </section>
 {% endblock content%}
