@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Box Icons CSS -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Quick ToDo</title>
-  </head>
-  <body
-    class="bg-[#cfcfcf] flex flex-col items-center justify-center gap-4 h-screen"
-  >
+{% extends "base.html" %}
+
+{% block header %}
     <!-- header -->
     <header
       class="bg-white shadow-lg w-10/12 h-auto rounded-3xl flex flex-col sm:flex-row justify-between items-center p-5 m-7 md:w-3/6"
@@ -26,7 +13,14 @@
         <i class="bx bxs-home bx-sm"></i> Go to Home
       </a>
     </header>
+{% endblock header %}
 
+
+{% block navigation_bar%}
+{% endblock navigation_bar%}
+
+
+{% block content %}
     <!-- Tasks -->
     <section
       class="flex flex-1 flex-wrap justify-center gap-3 bg-[#fff0] w-10/12 md:w-11/12 h-full mb-3 rounded-2xl p-3 overflow-y-auto scrollbar-hide"
@@ -68,8 +62,5 @@
         </div>
       </div>
     </section>
+{% endblock content %}
 
-    <!-- Box Icons -->
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  </body>
-</html>
