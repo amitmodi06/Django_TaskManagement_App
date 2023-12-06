@@ -5,12 +5,13 @@
 {% endblock navigation_bar%}
 
 {% block content  %}
-  {% for task in tasks_remaining %}
+  
   <!-- Tasks -->
   <section
   class="flex flex-1 flex-wrap justify-center gap-3 bg-[#fff0] w-10/12 md:w-11/12 h-full mb-3 rounded-2xl p-3 overflow-y-auto scrollbar-hide"
   >
   <!-- Task card -->
+  {% for task in tasks_remaining %}
   <div
     class="w-[355px] shadow-md flex flex-col bg-white h-[120px] rounded-xl p-3"
   >
