@@ -48,5 +48,7 @@ def delete_task(request):
     return render(request, 'delete.html')
 
 
-def task_detail(request):
-    return render(request, 'task_detail.html')
+def task_detail(request, task_id):
+    task = Task.objects.get(id=task_id)
+    context = {"task":task}
+    return render(request, 'task_detail.html', context)
