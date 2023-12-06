@@ -52,3 +52,11 @@ def task_detail(request, task_id):
     task = Task.objects.get(id=task_id)
     context = {"task":task}
     return render(request, 'task_detail.html', context)
+
+
+def toggle_complete(request, task_id):
+    task = Task.objects.get(id=task_id)
+    if task:
+        task.completed = not task.completed
+        task.save()
+        return redirect('home')
