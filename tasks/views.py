@@ -44,8 +44,11 @@ def add_task(request):
     return render(request, 'add_task.html')
 
 
-def delete_task(request):
-    return render(request, 'delete.html')
+def delete_task(request, task_id):
+    task = Task.objects.get(id=task_id)
+    if task:
+        context = {"task":task}
+        return render(request, 'delete.html', context)
 
 
 def task_detail(request, task_id):
@@ -59,4 +62,11 @@ def toggle_complete(request, task_id):
     if task:
         task.completed = not task.completed
         task.save()
+        return redirect('home')
+    
+
+def remove_task(request, task_id):
+    task = Task.objects.get(id=task_id)
+    if task:
+        task.delete()
         return redirect('home')

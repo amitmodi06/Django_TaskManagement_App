@@ -55,7 +55,7 @@
             </p>
           </div>
           <!-- Right: Toggle complete mode -->
-          <a href="">
+          <a href="{% url 'task_toggle_complete' %}">
             <i class="bx bx-check-circle bx-sm text-blue-500"></i>
             <!-- <i class='bx bxs-check-circle'></i> -->
           </a>
@@ -67,7 +67,7 @@
           <h2 class="text-gray-500 font-bold">
             Due {{ task.due_date }} <span class="font-medium text-gray-400">{{ task.due_time }}</span>
           </h2>
-          <a href="./delete.html">
+          <a href=".{% url 'task.delete' task.id %}">
             <i class="bx bxs-trash bx-sm text-red-500"></i>
           </a>
         </div>
